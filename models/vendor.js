@@ -4,16 +4,19 @@ require('dotenv').config();
 let faker =require('faker');
 const events=require('../events');
 
-setTimeout(()=>{
-    let customerOrder={
-        storeName:process.env.STORENAME || 'doon',
-        orderId:faker.datatype.uuid(),
-        customerName:faker.name.findName(),
-        address:faker.address.streetAddress()
-    };
+setInterval(() => {
+    setTimeout(()=>{
+        let customerOrder={
+            storeName:process.env.STORENAME || 'doon',
+            orderId:faker.datatype.uuid(),
+            customerName:faker.name.findName(),
+            address:faker.address.streetAddress()
+        };
+    
+        events.emit('pickup',customerOrder);
+    },5000);
+}, 5000);
 
-    events.emit('pickup',customerOrder);
-},5000);
 
 
 events.on('vendorDileverd',payload=>{
