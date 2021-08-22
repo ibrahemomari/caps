@@ -9,8 +9,8 @@
 
 ###### Author: Ibrahem Alomari
 
-- ##### [Pull Request]()
-- ##### [Heroku]()
+- ##### [Pull Request](https://github.com/ibrahemomari/caps/pull/1)
+- ##### [Actions](https://github.com/ibrahemomari/caps/actions)
 
 
 ---
