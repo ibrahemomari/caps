@@ -6,7 +6,7 @@ const events=require('../events');
 
 setTimeout(()=>{
     let customerOrder={
-        storeName:process.env.STORENAME,
+        storeName:process.env.STORENAME || 'doon',
         orderId:faker.datatype.uuid(),
         customerName:faker.name.findName(),
         address:faker.address.streetAddress()
