@@ -9,7 +9,7 @@
 
 ###### Author: Ibrahem Alomari
 
-- ##### [Pull Request](https://github.com/ibrahemomari/caps/pull/1)
+- ##### [Pull Request](https://github.com/ibrahemomari/caps/pull/2)
 - ##### [Actions](https://github.com/ibrahemomari/caps/actions)
 
 
