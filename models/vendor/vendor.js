@@ -2,10 +2,11 @@
 
 require('dotenv').config();
 let faker =require('faker');
-const events=require('../events');
+const io=require('socket.io-client');
+const HOST=process.env.HOST || 'http://localhost:8000';
+const socket=io.connect(`${HOST}/caps`);
 
 setInterval(() => {
-    setTimeout(()=>{
         let customerOrder={
             storeName:process.env.STORENAME || 'doon',
             orderId:faker.datatype.uuid(),
@@ -13,16 +14,12 @@ setInterval(() => {
             address:faker.address.streetAddress()
         };
     
-        events.emit('pickup',customerOrder);
-    },5000);
-}, 5000);
+        socket.emit('pickup',customerOrder);
+}, 1500);
 
 
 
-events.on('vendorDileverd',payload=>{
+socket.on('vendorDileverd',payload=>{
     console.log(`thank you for delivering ${payload.orderId}`);
-    events.emit('deleverd', payload);
+    // socket.emit('vendorDileverd', payload);
 })
-
-
-module.exports=events

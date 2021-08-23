@@ -1,6 +1,6 @@
 # caps
 
-# avengers
+# socket.io
 
 
 ---
@@ -20,6 +20,8 @@
 ### `.env`
 
 > STORENAME=
+>HOST=
+>PORT=
 
 
 ---
@@ -64,6 +66,8 @@
 ---
 #### execute
     > node caps.js
+    > node vendor.js
+    > node driver.js
 
 #### Tests
 
