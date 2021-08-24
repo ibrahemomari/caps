@@ -6,7 +6,8 @@ const faker = require("faker");
 const HOST = process.env.HOST || "http://localhost:8000";
 const io = require("socket.io-client");
 const socket = io.connect(`${HOST}/caps`);
-const storeName = process.env.storeName || "doon";
+
+const storeName =  "acme-widgets";
 
 socket.emit("join", storeName);
 
@@ -47,7 +48,7 @@ socket.on("delivered", vendorFunction);
 
 function vendorFunction(message) {
   console.log(
-    `VENDOR: Thank you for delivering ${message.payload.payload.orderId}`
+    `${storeName}: Thank you for delivering ${message.payload.payload.orderId}`
   );
 
   socket.emit("received", message.id);
