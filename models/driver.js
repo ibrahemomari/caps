@@ -29,5 +29,5 @@ function driverFunction(message) {
     socket.emit("delivered", message.payload.payload);
   }, 3000);
 
-  socket.emit("received", message.id);
+  socket.emit("received", message);
 }
