@@ -26,6 +26,7 @@ caps.on("connection", (socket) => {
     const id = uuid();
     queue.messagesId[id] = { event: "pickup", payload };
     caps.emit("pickup", { id, payload: queue.messagesId[id] });
+    console.log(queue);
   });
 
   socket.on("in-transit", (payload) => {
@@ -50,7 +51,8 @@ caps.on("connection", (socket) => {
     });
   });
 
-  socket.on("received", (id) => {
-    delete queue.messagesId[id];
+  socket.on("received", (message) => {
+    delete queue.messagesId[message.id];
+    console.log(queue);
   });
 });
